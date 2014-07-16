@@ -2,6 +2,10 @@ require 'open-uri'
 require 'cinch'
 require 'nokogiri'
 
+##################################
+#  This is now handled by title  #
+##################################
+
 class YouTube
   include Cinch::Plugin
 

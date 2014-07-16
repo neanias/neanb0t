@@ -8,13 +8,15 @@ class Title
 
   match /.*#{URI.regexp}.*/
 
-  def execute(msg, query)
-    string = msg.params.last
-    urls = URI.extract(string)
+  def execute(msg)
+    unless msg.user.nick.match /^.*b(o|0)t$/
+      string = msg.params.last
+      urls = URI.extract(string)
 
-    unless urls.empty?
-      urls.each do |url|
-        msg.reply "#{get_title(url)} - #{url}"
+      unless urls.empty?
+        urls.each do |url|
+          msg.reply "#{get_title(url)} - #{url}"
+        end
       end
     end
   end
