@@ -14,7 +14,7 @@ class Title
 
     unless urls.empty?
       urls.each do |url|
-        msg.reply "Title of url: #{get_title(url)}"
+        msg.reply "#{get_title(url)} - #{url}"
       end
     end
   end
