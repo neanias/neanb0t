@@ -3,22 +3,29 @@ require 'cinch'
 class ManPage
   include Cinch::Plugin
 
+  PLUGINS = ['fuck', 'yo', 'karma', 'up', 'imdb']
+
   match /^!man ?(.*)/i
 
   def execute(msg, query)
     if query.empty?
       msg.reply "I can currently do:"
-      msg.reply "!yo (name), !karma (username), !fuck (name)"
+      msg.reply "!yo (name), !karma (username), !fuck (name), !imdb <film>"
       msg.reply "I also grab titles from links :)"
     else
-      if ['fuck', 'yo', 'karma', 'up'].include? query
-        help_fuck(msg) if query.eql? 'fuck'
-        help_yo(msg) if query.eql? 'yo'
-        help_karma(msg) if query.eql? 'karma'
-        msg.reply "Man up, you whiney, little bitch!" if query.eql? 'up'
-      else
-        msg.reply "I don't know how to do that."
-      end
+      respond_appropriately(msg, query)
+    end
+  end
+
+  def respond_appropriately(msg, query)
+    if PLUGINS.include? query
+      help_fuck(msg) if query.eql? 'fuck'
+      help_yo(msg) if query.eql? 'yo'
+      help_karma(msg) if query.eql? 'karma'
+      help_imdb(msg) if query.eql? 'imdb'
+      msg.reply "Man up, you whiney, little bitch!" if query.eql? 'up'
+    else
+      msg.reply "I don't know how to do that."
     end
   end
 
@@ -35,5 +42,10 @@ class ManPage
   def help_yo(msg)
     msg.reply "Usage: !yo (username)"
     msg.reply "Yo!"
+  end
+
+  def help_imdb(msg)
+    msg.reply "Usage: !imdb <film>"
+    msg.reply "Returns information about the film. Only films atm"
   end
 end
