@@ -10,7 +10,7 @@ class ManPage
   def execute(msg, query)
     if query.empty?
       msg.reply "I can currently do:"
-      msg.reply "!yo (name), !karma (username), !fuck (name)"
+      msg.reply "!yo (name), !karma (username), !fuck (name), !imdb <film>"
       msg.reply "I also grab titles from links :)"
     else
       respond_appropriately(msg, query)
@@ -45,7 +45,7 @@ class ManPage
   end
 
   def help_imdb(msg)
-    msg.reply "Usage: !imdb <movie>"
+    msg.reply "Usage: !imdb <film>"
     msg.reply "Returns information about the film. Only films atm"
   end
 end
