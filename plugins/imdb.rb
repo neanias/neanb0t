@@ -6,11 +6,9 @@ class IMDb
   include Cinch::Plugin
   include HTTParty
 
-  JSON_HASH = { symbolize_keys: true }
-
   base_uri 'http://www.omdbapi.com'
 
-  match /!imdb ?(.*)/i
+  match /^!imdb ?(.*)/i
 
   def execute(msg, query)
     if query.empty?
