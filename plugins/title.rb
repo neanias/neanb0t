@@ -15,20 +15,18 @@ class Title
 
       unless urls.empty?
         urls.each do |url|
-          msg.reply "#{get_title(url)} - #{url}"
+          get_title(msg, url)
         end
       end
     end
   end
 
-  def get_title(url)
+  def get_title(msg, url)
     html = Nokogiri::HTML(open(url))
     title = html.xpath('//title').inner_text
 
-    if title.empty?
-      return "No <title> tag found."
-    else
-      return title
+    unless title.empty?
+      msg.reply "#{title} - #{url}"
     end
   end
 end
