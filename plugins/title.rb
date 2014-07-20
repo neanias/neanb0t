@@ -6,7 +6,7 @@ require 'nokogiri'
 class Title
   include Cinch::Plugin
 
-  match /.*#{URI.regexp}.*/
+  match /(.*#{URI.regexp}.*)/
 
   def execute(msg)
     unless msg.user.nick.match /^.*b(o|0)t$/
