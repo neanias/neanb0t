@@ -1,3 +1,6 @@
 Gemfile.lock
-
+logs/
+logs/*
+cache/
+cache/*
 *.rbc
