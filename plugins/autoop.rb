@@ -14,7 +14,7 @@ class AutoOp
   def execute(m, option)
     @autovoice = (option == 'on')
 
-    m.reply "Autovoice is now #{@autovoice ? 'enabled' : 'disabled'}"
+    m.reply "AutoOp is now #{@autovoice ? 'enabled' : 'disabled'}"
   end
 end
 
