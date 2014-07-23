@@ -7,14 +7,14 @@ class AutoOp
 
   def listen(m)
     unless m.user.nick == bot.nick
-      m.channel.op(m.user) if @autovoice
+      m.channel.op(m.user) if @autoop
     end
   end
 
   def execute(m, option)
-    @autovoice = (option == 'on')
+    @autoop = (option == 'on')
 
-    m.reply "AutoOp is now #{@autovoice ? 'enabled' : 'disabled'}"
+    m.reply "AutoOp is now #{@autoop ? 'enabled' : 'disabled'}"
   end
 end
 
