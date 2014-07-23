@@ -6,8 +6,7 @@ class FileDownloader
 
   match /^!gimme (#{URI.regexp})/i
 
-  BASE_DIR = '/Users/williammathewson/Programming/Ruby/neanb0t'
-  CACHE = File.join(BASE_DIR, 'cache')
+  CACHE = File.join(BotConfig::BASE_DIR, 'cache')
 
   def execute(msg, query)
     unless query.empty?
@@ -35,7 +34,7 @@ class FileDownloader
     end
 
     Dir.chdir(CACHE) do
-      log_file = "#{BASE_DIR}/logs/wget_log"
+      log_file = "#{BotConfig::BASE_DIR}/logs/wget_log"
 
       unless Dir.entries(Dir.pwd).include? extract_filename(url)
         `wget -a #{log_file} #{url}`

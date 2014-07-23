@@ -1,5 +1,7 @@
 require 'cinch'
 
+require_relative 'config'
+
 require_relative 'plugins/yo'
 require_relative 'plugins/fuck'
 require_relative 'plugins/gyf'
