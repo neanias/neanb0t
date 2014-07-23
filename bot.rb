@@ -10,6 +10,7 @@ require_relative 'plugins/title'
 require_relative 'plugins/man_page'
 require_relative 'plugins/imdb'
 require_relative 'plugins/downloader'
+require_relative 'plugins/autoop'
 
 bot = Cinch::Bot.new do
   configure do |c|
@@ -20,8 +21,8 @@ bot = Cinch::Bot.new do
     c.channels = ['#postevolution w0rdsn0tw4r']
 
     c.plugins.prefix = ''
-    c.plugins.plugins = [Yo, Fuck, Gyf, Karma, Title,
-                         ManPage, IMDb, FileDownloader]
+    c.plugins.plugins = [Yo, Fuck, Gyf, Karma, Title, ManPage, IMDb,
+                         FileDownloader, AutoOp]
   end
 end
 
