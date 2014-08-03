@@ -10,6 +10,7 @@ require_relative 'plugins/title'
 require_relative 'plugins/man_page'
 require_relative 'plugins/imdb'
 require_relative 'plugins/downloader'
+require_relative 'plugins/giphy'
 
 bot = Cinch::Bot.new do
   configure do |c|
