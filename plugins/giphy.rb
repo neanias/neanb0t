@@ -7,7 +7,7 @@ class GiphyPlugin
   match /^!gif ?(.*)/i
 
   def execute(msg, query)
-    msg.user.reply get_gif(query)
+    msg.reply get_gif(query)
   end
 
   def get_gif(tag='')
