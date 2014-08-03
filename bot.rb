@@ -10,6 +10,7 @@ require_relative 'plugins/title'
 require_relative 'plugins/man_page'
 require_relative 'plugins/imdb'
 require_relative 'plugins/downloader'
+require_relative 'plugins/giphy'
 
 bot = Cinch::Bot.new do
   configure do |c|
@@ -21,7 +22,7 @@ bot = Cinch::Bot.new do
 
     c.plugins.prefix = ''
     c.plugins.plugins = [Yo, Fuck, Gyf, Karma, Title,
-                         ManPage, IMDb, FileDownloader]
+                         ManPage, IMDb, FileDownloader, GiphyPlugin]
   end
 end
 
