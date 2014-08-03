@@ -22,7 +22,7 @@ bot = Cinch::Bot.new do
 
     c.plugins.prefix = ''
     c.plugins.plugins = [Yo, Fuck, Gyf, Karma, Title,
-                         ManPage, IMDb, FileDownloader, Giphy]
+                         ManPage, IMDb, FileDownloader, GiphyPlugin]
   end
 end
 

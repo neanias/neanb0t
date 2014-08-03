@@ -1,7 +1,7 @@
 require 'giphy'
 require 'cinch'
 
-class Giphy
+class GiphyPlugin
   include Cinch::Plugin
 
   match /^!gif ?(.*)/i
