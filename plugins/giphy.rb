@@ -16,7 +16,7 @@ class GiphyPlugin
     begin
       gif_url = gif.image_url.to_s
     rescue TypeError
-      debug "No gif found for #{tag}"
+      debug "No gif found for '#{tag}'"
     end
   end
 end
