@@ -12,6 +12,11 @@ class GiphyPlugin
 
   def get_gif(tag='')
     gif = Giphy.random(tag)
-    gif_url = gif.image_url.to_s
+
+    begin
+      gif_url = gif.image_url.to_s
+    rescue TypeError
+      debug "No gif found for #{tag}"
+    end
   end
 end
