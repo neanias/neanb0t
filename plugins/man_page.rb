@@ -10,8 +10,10 @@ class ManPage
   def execute(msg, query)
     if query.empty?
       msg.reply "I can currently do:"
-      msg.reply "!yo (name), !karma (username), !fuck (name), !imdb <film>, !gimme <url> ..."
-      msg.reply "I also grab titles from links :)"
+      msg.reply "!yo (name), !karma (username), !fuck (name), !imdb <film>, "
+      msg.reply "!gimme <url> ..., !gif (tag)"
+      msg.reply "I also grab titles from links and paste them here:"
+      msg.reply "https://gist.github.com/neanias/55f7cf7955a68e4d8b3e"
     else
       respond_appropriately(msg, query)
     end
@@ -24,6 +26,7 @@ class ManPage
       help_karma(msg) if query.eql? 'karma'
       help_imdb(msg) if query.eql? 'imdb'
       help_gimme(msg) if query.eql? 'gimme'
+      help_gif(msg) if query.eql? 'gif'
       msg.reply "Man up, you whiney, little bitch!" if query.eql? 'up'
     else
       msg.reply "I don't know how to do that."
@@ -53,5 +56,10 @@ class ManPage
   def help_gimme(msg)
     msg.reply "Usage: !gimme <url> ..."
     msg.reply "Downloads file from url then DCC's it to the user who requested it"
+  end
+
+  def help_gif(msg)
+    msg.reply "Usage: !gif (tag)"
+    msg.reply "Gives out a random gif from Giphy. Random gif follows tag if given."
   end
 end
