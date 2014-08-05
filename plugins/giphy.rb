@@ -1,6 +1,3 @@
-require 'giphy'
-require 'cinch'
-
 class GiphyPlugin
   include Cinch::Plugin
 

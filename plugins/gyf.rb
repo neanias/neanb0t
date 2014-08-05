@@ -1,6 +1,4 @@
 require 'securerandom'
-require 'cinch'
-require 'httparty'
 
 class Gyf
   include Cinch::Plugin

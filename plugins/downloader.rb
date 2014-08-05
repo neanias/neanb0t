@@ -1,4 +1,3 @@
-require 'cinch'
 require 'uri'
 
 class FileDownloader

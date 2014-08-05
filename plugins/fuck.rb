@@ -1,5 +1,3 @@
-require 'cinch'
-
 class Fuck
   include Cinch::Plugin
 

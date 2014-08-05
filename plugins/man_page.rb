@@ -1,5 +1,3 @@
-require 'cinch'
-
 class ManPage
   include Cinch::Plugin
 

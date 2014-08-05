@@ -1,7 +1,5 @@
 require 'uri'
 require 'open-uri'
-require 'cinch'
-require 'nokogiri'
 
 class Title
   include Cinch::Plugin

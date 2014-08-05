@@ -1,5 +1,3 @@
-require 'cinch'
-
 class Yo
   include Cinch::Plugin
 

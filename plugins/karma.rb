@@ -1,6 +1,3 @@
-require 'cinch'
-require 'httparty'
-
 class Karma
   include Cinch::Plugin
   include HTTParty
@@ -17,7 +14,7 @@ class Karma
 
         msg.reply "Total karma for #{msg.user.nick}:    #{total_karma}"
         msg.reply "Comment karma for #{msg.user.nick}:  #{reddit['data']['comment_karma']}"
-        msg.reply "Link karma for #{msg.user.nick}:      #{reddit['data']['link_karma']}"
+        msg.reply "Link karma for #{msg.user.nick}:     #{reddit['data']['link_karma']}"
       else
         msg.reply "You don't have an account on Reddit. I wouldn't reccomend opening one."
         msg.reply "It's dangerously addictive."
@@ -29,7 +26,7 @@ class Karma
 
         msg.reply "Total karma for #{query}:    #{total_karma}"
         msg.reply "Comment karma for #{query}:  #{reddit['data']['comment_karma']}"
-        msg.reply "Link karma for #{query}:      #{reddit['data']['link_karma']}"
+        msg.reply "Link karma for #{query}:     #{reddit['data']['link_karma']}"
       else
         msg.reply "Reddit couldn't find #{query}. They might not exist."
       end

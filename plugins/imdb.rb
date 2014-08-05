@@ -1,6 +1,4 @@
 require 'uri'
-require 'cinch'
-require 'httparty'
 
 class IMDb
   include Cinch::Plugin
