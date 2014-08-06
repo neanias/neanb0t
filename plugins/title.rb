@@ -15,7 +15,14 @@ class Title
 
       unless urls.empty?
         urls.each do |url|
-          get_title(msg, url)
+          begin
+            get_title(msg, url)
+          rescue RuntimeError
+            fixed_url = url.gsub('http://', 'https://')
+            get_title(msg, fixed_url)
+          rescue
+            next
+          end
         end
       end
     end
