@@ -19,7 +19,9 @@ class Title
           begin
             title = get_title(url)
             endpoint = get_url(url)
-            msg.reply "#{title} - #{endpoint}"
+            unless title.nil?
+              msg.reply "#{title} - #{endpoint}"
+            end
           rescue => e
             puts e
             next
