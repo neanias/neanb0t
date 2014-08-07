@@ -1,5 +1,6 @@
 require 'uri'
 require 'open-uri'
+require 'net/http'
 require 'cinch'
 require 'nokogiri'
 
@@ -16,11 +17,11 @@ class Title
       unless urls.empty?
         urls.each do |url|
           begin
-            get_title(msg, url)
-          rescue RuntimeError
-            fixed_url = url.gsub('http://', 'https://')
-            get_title(msg, fixed_url)
-          rescue
+            title = get_title(url)
+            endpoint = get_url(url)
+            msg.reply "#{title} - #{endpoint}"
+          rescue => e
+            puts e
             next
           end
         end
@@ -28,12 +29,16 @@ class Title
     end
   end
 
-  def get_title(msg, url)
-    html = Nokogiri::HTML(open(url))
-    title = html.xpath('//title').inner_text
+  def get_title(url)
+    html = Nokogiri.parse(open(url, redirect: true))
+    html.title
+  end
 
-    unless title.empty?
-      msg.reply "#{title} - #{url}"
-    end
+  def get_url(url)
+    uri = URI(url)
+
+    res = Net::HTTP.get_response(uri)
+
+    return res['location'] ? res['location'] : url
   end
 end
