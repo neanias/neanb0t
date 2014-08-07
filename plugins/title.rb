@@ -22,6 +22,13 @@ class Title
             unless title.nil?
               msg.reply "#{title} - #{endpoint}"
             end
+          rescue TypeError
+            fixed_url = url.gsub('http://', 'https://')
+            title = get_title(fixed_url)
+            endpoint = get_url(fixed_url)
+            unless title.nil?
+              msg.reply "#{title} - #{endpoint}"
+            end
           rescue => e
             puts e
             next
