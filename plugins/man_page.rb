@@ -3,7 +3,7 @@ require 'cinch'
 class ManPage
   include Cinch::Plugin
 
-  PLUGINS = ['fuck', 'yo', 'karma', 'up', 'imdb', 'gimme']
+  PLUGINS = %w(fuck yo karma up imdb gimme butts sudo woodo up)
 
   match /^!man ?(.*)/i
 
