@@ -39,15 +39,12 @@ class Title
   end
 
   def get_title(url)
-    html = Nokogiri.parse(open(url, redirect: true))
-    html.title
-  end
+    html = Nokogiri.parse(open(url, redirect: true), nil, 'utf-8')
+    title = html.title.strip.gsub("\n", ' ')
+    if title.length > 120
+      return title[0..119] + ' ...'
+    end
 
-  def get_url(url)
-    uri = URI(url)
-
-    res = Net::HTTP.get_response(uri)
-
-    return res['location'] ? res['location'] : url
+    title
   end
 end
