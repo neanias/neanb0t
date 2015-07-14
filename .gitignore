@@ -4,3 +4,5 @@ logs/*
 cache/
 cache/*
 *.rbc
+*.sample
+*.swp

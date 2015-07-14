@@ -4,7 +4,7 @@ require 'cinch'
 class GiphyPlugin
   include Cinch::Plugin
 
-  match /^!gif ?(.*)/i
+  match(/!gif($|\s(.*))/i)
 
   def execute(msg, query)
     msg.reply get_gif(query)
@@ -12,6 +12,15 @@ class GiphyPlugin
 
   def get_gif(tag='')
     gif = Giphy.random(tag)
-    gif_url = gif.image_url.to_s
+
+    begin
+      return gif.image_url.to_s
+    rescue TypeError
+      return "No gif found, here's a random one: #{random_gif}"
+    end
+  end
+
+  def random_gif
+    Giphy.random.image_url.to_s
   end
 end
