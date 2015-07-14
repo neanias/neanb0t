@@ -3,7 +3,6 @@ require 'httparty'
 
 class Karma
   include Cinch::Plugin
-  include HTTParty
 
   base_uri 'http://api.reddit.com'
 
@@ -11,7 +10,8 @@ class Karma
 
   def execute(msg, query)
     if query.empty?
-      reddit = self.class.get("/user/#{msg.user.nick}/about.json")
+      reddit = HTTParty.get("#{$base_uri}/user/#{msg.user.nick}/about.json",
+                            headers: {'User-Agent' => 'neanb0t by neanias'})
       if reddit.success?
         total_karma = reddit['data']['comment_karma'] + reddit['data']['link_karma']
 
@@ -23,7 +23,8 @@ class Karma
         msg.reply "It's dangerously addictive."
       end
     else
-      reddit = self.class.get("/user/#{query}/about.json")
+      reddit = HTTParty.get("#{$base_uri}/user/#{query}/about.json",
+                            headers: {'User-Agent' => 'neanb0t by neanias'})
       if reddit.success?
         total_karma = reddit['data']['comment_karma'] + reddit['data']['link_karma']
 
