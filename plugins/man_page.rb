@@ -9,11 +9,10 @@ class ManPage
 
   def execute(msg, query)
     if query.empty?
-      msg.reply "I can currently do:"
-      msg.reply "!yo (name), !karma (username), !fuck (name), !imdb <film>, "
-      msg.reply "!gimme <url> ..., !gif (tag)"
-      msg.reply "I also grab titles from links and paste them here:"
-      msg.reply "https://gist.github.com/neanias/55f7cf7955a68e4d8b3e"
+      msg.reply 'I can currently do:'
+      msg.reply '!yo (name), !karma (username), !fuck (name), !imdb <film>,'
+      msg.reply '!gimme <url> ..., !gif (tag), !butts, !sudo (command), !woodo'
+      msg.reply 'I also grab titles!'
     else
       respond_appropriately(msg, query)
     end
