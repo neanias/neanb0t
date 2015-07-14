@@ -20,19 +20,17 @@ class Title
         urls.each do |url|
           begin
             title = get_title(url)
-            endpoint = get_url(url)
             unless title.nil?
-              msg.reply "#{title} - #{endpoint}"
+              msg.reply ".:. #{title.chomp}"
             end
           rescue TypeError
             fixed_url = url.gsub('http://', 'https://')
             title = get_title(fixed_url)
-            endpoint = get_url(fixed_url)
             unless title.nil?
-              msg.reply "#{title} - #{endpoint}"
+              msg.reply ".:. #{title.encode(Encoding::UTF_8).chomp}"
             end
-          rescue => e
-            puts e
+          rescue
+            # raise
             next
           end
         end
