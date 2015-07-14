@@ -4,20 +4,39 @@
 
 ###Fuck
 - Usage: !fuck [thing]
-- Responds "Fuck you, (thing or user that called it)"
+- For when you are really pissed off at someone 
 
-###Gyf
-- Usage: !gyf {imgur gif link}
-- Responds with the gfycat link and some cool data
+###Gif
+- Usage: !gif [tag]
+- Gives out a random gif from Giphy. Random gif follows tag if given. 
 
 ###Karma
 - Usage: !karma [username]
-- Responds with the karma for that username or the user who called it
+- Grabs the reddit karma for the specified user. Either you or the username
 
 ###Title
-- No usage; checks every message for valid URLs
-- Responds with the title and url
+- If a url is detected in a message, the contents of the title tag will be posted
 
 ###Yo
 - Usage: !yo [username/thing]
-- Responds "Yo, (username/thing)"
+- Yo!
+
+###IMDb
+####(really crap, wouldn't recommend using)
+- Usage: !imdb <film>
+- Returns information about the film
+
+###Butts
+- Usage: !butts
+- Butts.
+
+###Sudo
+- Usage: !sudo [command]
+- For when you need super (user) powers!
+
+###Woodo
+- Usage: !woodo
+- It's a weird tree
+
+
+Licenced under the MIT licence. See LICENCE.md for more
