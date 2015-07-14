@@ -1,22 +1,29 @@
 require 'cinch'
 
-require_relative 'plugins/yo'
-require_relative 'plugins/fuck'
-require_relative 'plugins/gyf'
-require_relative 'plugins/karma'
-require_relative 'plugins/title'
-require_relative 'plugins/man_page'
+require_relative 'config'
+
+Dir['plugins/**'].each do |pl|
+    require_relative pl
+end
+
+Giphy::Configuration.configure do |config|
+  config.version = BotConfig::GIPHY_API_VERSION
+  config.api_key = BotConfig::GIPHY_API_KEY
+end
 
 bot = Cinch::Bot.new do
   configure do |c|
-    c.user = 'neanb0t'
-    c.server = '87.117.253.48'
-    c.port = '31333'
-    c.password = 'Nemo me impune lacessit'
-    c.channels = ['#postevolution w0rdsn0tw4r']
+    c.user = BotConfig::BOT_USERNAME
+    c.nick = BotConfig::BOT_NICK
+    c.server = BotConfig::SERVER_URL
+    c.port = BotConfig::SERVER_PORT
+    c.password = BotConfig::SERVER_PASSWORD
 
-    c.plugins.prefix = ''
-    c.plugins.plugins = [Yo, Fuck, Gyf, Karma, Title, ManPage]
+    c.channels = BotConfig::NETWORK_CHANNELS
+
+    c.plugins.prefix = BotConfig::PLUGIN_PREFIX
+    c.plugins.plugins = [YoYo, Fuck, Gyf, Karma, Title, Butts, Sudo,
+                         ManPage, IMDb, FileDownloader, GiphyPlugin, Woodo]
   end
 end
 
