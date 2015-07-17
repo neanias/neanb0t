@@ -31,7 +31,7 @@ class ManPage
       help_woodo(msg)               if query.eql? 'woodo'
       msg.reply 'Man up, you wimp!' if query.eql? 'up'
     else
-      msg.reply "I don't have usage information for that."
+      msg.reply "No manual entry for #{query}"
     end
   end
 
