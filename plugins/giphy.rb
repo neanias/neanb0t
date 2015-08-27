@@ -5,6 +5,8 @@ class GiphyPlugin
   include Cinch::Plugin
 
   match(/!gif($|\s(.*))/i)
+  match(/!giphy($|\s(.*))/i)
+  match(/!zhy(f|ph)($|\s(.*))/i)
 
   def execute(msg, query)
     msg.reply get_gif(query)
