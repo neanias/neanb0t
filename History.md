@@ -1,4 +1,10 @@
 
+1.1.3 / 2015-08-27
+==================
+
+  * Gif plugin now matches giphy and zhy(f|ph)
+  * Use the same error for missing pages as actual man
+
 1.1.2 / 2015-07-14
 ==================
 
